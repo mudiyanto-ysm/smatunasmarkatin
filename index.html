@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SMA Tunas Markatin</title>
 <meta name="author" content="SMA Tunas Markatin">
 <meta name="application-name" content="SMA Tunas Markatin">
@@ -268,6 +268,48 @@ footer .bottom{border-top:1px solid #2A3A62;margin-top:32px;padding-top:18px;dis
 .reveal{opacity:1}
 @media print{.reveal{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* ===== CHATBOT ===== */
+.cb-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:80;display:flex;align-items:center;gap:10px;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:12px 18px 12px 14px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 10px 30px rgba(10,17,34,.35)}
+.cb-fab .dot{width:34px;height:34px;border-radius:50%;background:var(--gold);color:#14213D;display:grid;place-items:center}
+.cb-fab[aria-expanded="true"]{display:none}
+.cb-panel{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:81;width:390px;max-width:calc(100vw - 32px);height:600px;max-height:calc(100dvh - 110px);background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 60px rgba(10,17,34,.35);display:flex;flex-direction:column;overflow:hidden}
+.cb-panel[hidden]{display:none!important}
+.cb-head{background:var(--navy);color:#fff;padding:14px 14px 14px 16px;display:flex;align-items:center;gap:12px;flex:none}
+.cb-head .av{width:38px;height:38px;border-radius:12px;background:var(--navy2);display:grid;place-items:center;flex:none;border:1px solid rgba(255,255,255,.12)}
+.cb-head b{display:block;font-size:15px;line-height:1.2}
+.cb-head small{font-size:12px;color:#AEB8D0}
+.cb-head .x{margin-left:auto;background:transparent;border:0;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;display:grid;place-items:center}
+.cb-head .x:hover{background:rgba(255,255,255,.1)}
+.cb-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--bg2)}
+.msg{max-width:88%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.5;overflow-wrap:anywhere}
+.msg.bot{background:var(--surface);color:var(--ink2);border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+.msg.me{background:var(--navy);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.msg b{color:var(--ink)}
+.msg.me b{color:#fff}
+.msg ul{margin:6px 0 0 18px}
+.msg li{margin-bottom:3px}
+.msg .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.msg .acts a{font-size:13px;font-weight:700;text-decoration:none;padding:6px 11px;border-radius:999px;background:var(--gold-soft);color:var(--gold-ink)}
+.msg .acts a.wa{background:#25D366;color:#073B1E}
+.typing{display:flex;gap:4px;padding:12px 14px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:cbb 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes cbb{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+.cb-chips{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;border-top:1px solid var(--line);background:var(--surface);flex:none;scrollbar-width:thin}
+.cb-chips button{flex:none;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:inherit;font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.cb-chips button:hover{border-color:var(--gold)}
+.cb-form{display:flex;gap:8px;padding:10px 12px 12px;background:var(--surface);flex:none}
+.cb-form input{flex:1;min-width:0;padding:11px 14px;border:1.5px solid var(--line);border-radius:999px;font-family:inherit;font-size:15px;background:var(--bg);color:var(--ink)}
+.cb-form input:focus{outline:none;border-color:var(--gold)}
+.cb-form button{width:44px;height:44px;border-radius:50%;border:0;background:var(--gold);color:#14213D;cursor:pointer;display:grid;place-items:center;flex:none}
+.cb-note{font-size:11.5px;color:var(--muted);text-align:center;padding:0 12px 10px;background:var(--surface);flex:none}
+@media (max-width:520px){
+  .cb-fab{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));padding:10px 14px 10px 10px}
+  .cb-fab .lbl{display:none}
+  .cb-panel{right:8px;left:8px;width:auto;max-width:none;bottom:calc(8px + env(safe-area-inset-bottom,0px));height:calc(100dvh - 90px);max-height:none}
+}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none}}
+
 </style>
 </head>
 <body>
@@ -573,7 +615,7 @@ footer .bottom{border-top:1px solid #2A3A62;margin-top:32px;padding-top:18px;dis
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">Tanya jawab</span><h2>Yang sering ditanyakan orang tua</h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">Tanya jawab</span><h2>Yang sering ditanyakan orang tua</h2><p>Belum menemukan jawabannya? <a href="#tanya" id="openCbLink" style="color:var(--gold-ink);font-weight:700">Tanya Asisten Markatin</a>.</p></div>
     <div class="faq reveal">
       <details><summary>Apakah anak saya harus memilih jalur sejak kelas X?</summary><p>Tidak. Kelas X adalah masa eksplorasi: semua murid mengenal ketiga jalur. Pilihan jalur ditetapkan di akhir kelas X bersama orang tua dan guru BK, dan masih bisa berpindah di kelas XI melalui konseling.</p></details>
       <details><summary>Kalau memilih jalur kerja atau wirausaha, apakah masih bisa kuliah?</summary><p>Bisa. Semua murid tetap mengikuti kurikulum SMA dan mendapat fondasi ketiga jalur. Banyak lulusan jalur kerja yang kemudian kuliah sambil bekerja.</p></details>
@@ -619,6 +661,28 @@ footer .bottom{border-top:1px solid #2A3A62;margin-top:32px;padding-top:18px;dis
   </div>
 </footer>
 
+<!-- ===== CHATBOT ===== -->
+<button class="cb-fab" id="cbFab" aria-controls="cbPanel" aria-expanded="false">
+  <span class="dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></span>
+  <span class="lbl">Tanya Asisten</span>
+</button>
+<div class="cb-panel" id="cbPanel" role="dialog" aria-label="Asisten SMA Tunas Markatin" hidden>
+  <div class="cb-head">
+    <span class="av"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="#0B9486" stroke-width="3" stroke-dasharray="16 37.4" transform="rotate(-90 12 12)"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="#4263EB" stroke-width="3" stroke-dasharray="21.4 32" stroke-dashoffset="-16" transform="rotate(-90 12 12)"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="#E0A43A" stroke-width="3" stroke-dasharray="16 37.4" stroke-dashoffset="-37.4" transform="rotate(-90 12 12)"/></svg></span>
+    <div><b>Asisten Markatin</b><small>Jawaban otomatis · admin via WhatsApp</small></div>
+    <button class="x" id="cbClose" aria-label="Tutup asisten"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="cb-log" id="cbLog" aria-live="polite"></div>
+  <div class="cb-chips" id="cbChips" aria-label="Pertanyaan cepat"></div>
+  <form class="cb-form" id="cbForm" autocomplete="off">
+    <label for="cbInput" class="sr-only" style="position:absolute;left:-9999px">Ketik pertanyaan</label>
+    <input id="cbInput" placeholder="Ketik pertanyaan Anda…" maxlength="300">
+    <button type="submit" aria-label="Kirim pertanyaan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+  <div class="cb-note">Asisten otomatis. Untuk hal yang tidak terjawab, lanjutkan ke admin via WhatsApp.</div>
+</div>
+
+
 <script>
 // theme toggle (per-viewer; storage optional)
 (function(){
@@ -654,6 +718,137 @@ wa.addEventListener('click',e=>{ if(!form.nama.value.trim()){e.preventDefault();
 form.addEventListener('submit',e=>{e.preventDefault(); if(form.nama.value.trim()) wa.click(); else {msg.textContent='Mohon isi nama calon murid terlebih dahulu.';form.nama.focus();}});
 // reveal
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+// ===== CHATBOT (rule-based, runs fully in the browser) =====
+(function(){
+const WA='6281310002530';
+const wa=(t)=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+const A=(href,label,cls='')=>`<a href="${href}"${href.startsWith('http')?' target="_blank" rel="noopener noreferrer"':''}${cls?` class="${cls}"`:''}>${label}</a>`;
+const WA_BTN=(t)=>A(wa(t||"Halo Admin SMA Tunas Markatin, saya ingin bertanya."),'Chat admin WhatsApp','wa');
+
+// Knowledge base: k = keywords (normalized, may be phrases), w = optional weight boost
+const KB=[
+ {id:'salam',k:['halo','hai','hallo','hi','assalamualaikum','assalamu alaikum','selamat pagi','selamat siang','selamat sore','selamat malam','permisi','pagi','siang','sore','malam'],
+  a:`Halo, selamat datang di SMA Tunas Markatin. Saya bisa membantu soal <b>pendaftaran (SPMB)</b>, <b>Tiga Jalur</b>, biaya &amp; bantuan, fasilitas, lokasi, dan lainnya. Silakan ketik pertanyaan atau pilih topik di bawah.`},
+ {id:'daftar',k:['daftar','pendaftaran','spmb','ppdb','mendaftar','murid baru','siswa baru','penerimaan','kapan dibuka','cara daftar','registrasi','masuk sekolah','gelombang'],
+  a:`<b>SPMB Tahun Ajaran 2027/2028</b> — pendaftaran online direncanakan dibuka mulai <b>Januari 2027</b>. Alurnya:<ul><li>Daftar online &amp; buat akun</li><li>Unggah dokumen</li><li>Asesmen minat-bakat &amp; wawancara</li><li>Pengumuman</li><li>Daftar ulang &amp; pembayaran daring</li></ul>Sampaikan minat Anda sekarang agar dikabari saat dibuka.`,
+  act:()=>[A('#spmb','Isi formulir minat'),WA_BTN('Halo Admin SPMB SMA Tunas Markatin, saya ingin info pendaftaran SPMB 2027/2028.')]},
+ {id:'syarat',k:['syarat','dokumen','berkas','persyaratan','kk','kartu keluarga','akta','rapor smp','ijazah','pas foto','foto','upload','unggah'],
+  a:`Dokumen yang disiapkan untuk SPMB:<ul><li>Kartu Keluarga</li><li>Akta kelahiran</li><li>Rapor SMP/MTs</li><li>Pas foto</li></ul>Format PDF/JPG, masing-masing maksimal 5 MB. Rincian final akan diumumkan saat pendaftaran dibuka.`,
+  act:()=>[A('#spmb','Lihat alur SPMB')]},
+ {id:'biaya',k:['biaya','bayar','spp','uang pangkal','uang gedung','harga','mahal','murah','iuran','cicil','cicilan','tagihan','berapa biaya','gratis','dana'],
+  a:`Rincian biaya (uang pangkal dan SPP) disampaikan langsung oleh admin SPMB agar selalu sesuai ketentuan terbaru. Pembayaran nantinya bisa dilakukan <b>online</b> dengan kuitansi otomatis.<br><br>Murid yang memenuhi syarat juga dapat dibantu mengajukan <b>KJP Plus</b> dan <b>PIP</b>.`,
+  act:()=>[WA_BTN('Halo Admin SMA Tunas Markatin, saya ingin menanyakan rincian biaya pendidikan (uang pangkal dan SPP).')]},
+ {id:'bantuan',k:['kjp','kjp plus','pip','kip','beasiswa','bantuan','keringanan','tidak mampu','subsidi'],
+  a:`Ada dua bantuan pemerintah yang bisa diajukan murid yang memenuhi syarat:<ul><li><b>KJP Plus</b> dari Pemprov DKI Jakarta</li><li><b>PIP</b> dari Kemendikdasmen</li></ul>Tim sekolah membantu proses pengajuannya. Untuk jalur kuliah, kami juga mendampingi pencarian beasiswa perguruan tinggi.`,
+  act:()=>[WA_BTN('Halo Admin, saya ingin bertanya tentang pengajuan KJP Plus / PIP.')]},
+ {id:'jalur',k:['tiga jalur','3 jalur','jalur','jurusan','peminatan','ipa','ips','program','pilih jalur','30 40 30','arah lulusan','bedanya jalur'],
+  a:`SMA Tunas Markatin memakai model <b>Tiga Jalur</b>:<ul><li><b>Kuliah (30%)</b> — siap lolos PTN/PTS &amp; beasiswa</li><li><b>Kerja (40%)</b> — siap kerja entry-level bersertifikat</li><li><b>Wirausaha (30%)</b> — siap merintis usaha</li></ul>Kelas X untuk eksplorasi, jalur dipilih di akhir kelas X bersama orang tua &amp; guru BK, dan masih bisa pindah di kelas XI. Persentase itu target, bukan kuota.`,
+  act:()=>[A('#jalur','Lihat Tiga Jalur')]},
+ {id:'kuliah',k:['kuliah','ptn','pts','universitas','kampus','snbp','snbt','tka','tes kemampuan akademik','utbk','perguruan tinggi','lanjut studi'],
+  a:`<b>Jalur Kuliah</b>: mapel pilihan disesuaikan dengan prodi tujuan, seluruh murid jalur ini mengikuti <b>TKA</b> (syarat SNBP), latihan TKA lewat ujian berbasis komputer, klinik SNBP/SNBT, pendampingan beasiswa, dan riset mini di kelas XII.`,
+  act:()=>[A('#jalur','Detail jalur')]},
+ {id:'kerja',k:['kerja','bekerja','magang','pkl','sertifikat','sertifikasi','karier','karir','lowongan','siap kerja','job','admin kantor','digital marketing'],
+  a:`<b>Jalur Kerja</b> membekali keterampilan yang dicari industri: administrasi perkantoran digital, layanan pelanggan, pemasaran digital &amp; konten, dukungan TI dasar.<ul><li>Kelas XI: Koding &amp; KA, Informatika, B. Inggris lanjut; bootcamp soft skill; job shadowing</li><li>Kelas XII: magang mikro 2–4 minggu saat libur, sertifikasi, CV &amp; wawancara</li></ul>Penyaluran lewat <b>Pusat Karier &amp; Alumni</b>.`,
+  act:()=>[A('#jalur','Detail jalur')]},
+ {id:'wira',k:['wirausaha','wiraswasta','usaha','bisnis','jualan','dagang','entrepreneur','inkubator','demo day','umkm','modal'],
+  a:`<b>Jalur Wirausaha</b>: belajar dari ide sampai uji pasar di <b>Inkubator Markatin</b>, mengelola unit usaha siswa (kantin, merchandise, jasa desain/konten, jasa acara) dengan pembukuan digital, mengurus legalitas sederhana (NIB), dan tampil di <b>Demo Day</b> tahunan.`,
+  act:()=>[A('#program','Program unggulan')]},
+ {id:'smk',k:['smk','beda smk','bedanya dengan smk','kejuruan','vokasi'],
+  a:`SMA tidak memiliki PKL wajib seperti SMK. Di SMA Tunas Markatin, pengalaman kerja dibangun lewat kokurikuler, Prakarya &amp; Kewirausahaan, job shadowing, dan magang mikro di luar jam pelajaran — tanpa mengurangi persiapan akademik. Lulusan tetap bebas memilih kuliah, kerja, atau usaha.`},
+ {id:'akreditasi',k:['akreditasi','terakreditasi','nilai akreditasi','ban pdm','mutu','kualitas sekolah'],
+  a:`Saat ini SMA Tunas Markatin <b>terakreditasi B (nilai 88)</b>. Kami menargetkan <b>peringkat A pada 2028</b> melalui evaluasi diri, supervisi kelas, audit internal dua kali setahun, dan simulasi visitasi — dengan menjalankan praktik baik setiap hari di kelas.`,
+  act:()=>[A('#akreditasi','Perjalanan menuju A')]},
+ {id:'lokasi',k:['alamat','lokasi','dimana','di mana','letak','maps','peta','rute','arah ke','jalan waru','pulo gadung','pulogadung','rawamangun','jakarta timur'],
+  a:`Alamat: <b>Jl. Waru No. 20B, Kecamatan Pulo Gadung, Jakarta Timur, DKI Jakarta</b>. Lokasinya dekat kawasan industri, perkantoran, UMKM, dan kampus di koridor Rawamangun.`,
+  act:()=>[A('https://www.google.com/maps/search/?api=1&query=SMA+Tunas+Markatin+Jl.+Waru+20B+Pulo+Gadung+Jakarta+Timur','Buka Google Maps')]},
+ {id:'kontak',k:['kontak','hubungi','telepon','telpon','nomor','no hp','whatsapp','wa','email','admin','cs','call'],
+  a:`Kontak SMA Tunas Markatin:<ul><li>WhatsApp SPMB: <b>0813-1000-2530</b></li><li>Telepon: <b>(021) 4707917</b></li><li>Email: <b>markatintunas@yahoo.co.id</b></li></ul>`,
+  act:()=>[WA_BTN()]},
+ {id:'fasilitas',k:['fasilitas','lab','laboratorium','komputer','perpustakaan','musala','mushola','masjid','lapangan','futsal','basket','voli','bulu tangkis','badminton','internet','wifi','multimedia','sarana'],
+  a:`Fasilitas sekolah:<ul><li>Laboratorium IPA, komputer, dan bahasa</li><li>Ruang multimedia &amp; perpustakaan</li><li>Musala</li><li>Lapangan futsal, basket, voli, bulu tangkis</li><li>Internet khusus sekolah</li></ul>Lahan sekolah sekitar 4.800 m².`,
+  act:()=>[A('#fasilitas','Lihat fasilitas')]},
+ {id:'ekskul',k:['ekskul','ekstrakurikuler','kegiatan','pramuka','organisasi','osis','lomba','festival','olahraga','seni'],
+  a:`Pramuka tersedia sebagai ekstrakurikuler wajib sesuai ketentuan nasional. Kegiatan lain memanfaatkan fasilitas olahraga (futsal, basket, voli, bulu tangkis), OSIS, serta Festival Sekolah tahunan yang menampilkan karya dan projek murid. Daftar ekskul terbaru bisa ditanyakan ke admin.`,
+  act:()=>[WA_BTN('Halo Admin, saya ingin tahu daftar ekstrakurikuler di SMA Tunas Markatin.')]},
+ {id:'kurikulum',k:['kurikulum','merdeka','pembelajaran mendalam','deep learning','koding','coding','kecerdasan artifisial','ai','artificial intelligence','mapel','mata pelajaran','pelajaran'],
+  a:`Kami menjalankan <b>Kurikulum Merdeka</b> dengan <b>pembelajaran mendalam</b> — berkesadaran, bermakna, menggembirakan. Tersedia mapel pilihan <b>Koding &amp; Kecerdasan Artifisial</b> sesuai kebijakan nasional sejak 2025/2026, serta penilaian lewat e-portofolio dan rapor digital.`},
+ {id:'karakter',k:['karakter','akhlak','adab','sopan','disiplin','7 kebiasaan','7 kaih','kebiasaan','beradab','ibadah','agama','religius'],
+  a:`Program <b>Markatin Beradab</b> membangun karakter lewat kebiasaan: <b>7 Kebiasaan Anak Indonesia Hebat</b> — bangun pagi, beribadah, berolahraga, makan sehat &amp; bergizi, gemar belajar, bermasyarakat, tidur cepat — dicatat dalam jurnal harian digital. Ditambah public speaking, growth mindset, dan konseling.`},
+ {id:'aman',k:['bully','bullying','perundungan','aman','keamanan','kekerasan','narkoba','tawuran','pelecehan'],
+  a:`Keamanan murid adalah prioritas. Sekolah menjalankan pencegahan dan penanganan kekerasan (termasuk perundungan) melalui Tim PPK, kanal pelaporan, pembinaan karakter berbasis data, serta edukasi anti-narkoba dalam program Siap Dewasa 17+. Laporan dapat disampaikan langsung ke sekolah.`,
+  act:()=>[WA_BTN('Halo Admin, saya ingin menyampaikan/bertanya terkait keamanan murid.')]},
+ {id:'dewasa',k:['dewasa','hukum','ktp','sim','pemilu','hak pilih','siap dewasa','17 tahun','kontrak kerja','literasi keuangan','rekening'],
+  a:`Program <b>Siap Dewasa 17+</b> menyiapkan murid memahami hak dan kewajiban sebagai warga: KTP-el &amp; pemilih pemula, SIM &amp; keselamatan berlalu lintas, rekening &amp; literasi keuangan, kontrak kerja, UU ITE &amp; data pribadi, serta anti-narkoba.`},
+ {id:'arah',k:['tujuan hidup','arah hidup','bingung','minat bakat','bimbingan konseling','bk','konseling','kompas hidupku','mentor'],
+  a:`Program <b>Kompas Hidupku</b> membantu murid menemukan arah: asesmen minat-bakat di kelas X, rencana hidup 5 tahun, mentor alumni untuk kelompok kecil, dan konseling karier bersama guru BK dan orang tua.`},
+ {id:'digital',k:['digital','online','aplikasi','portal','rapor digital','e rapor','erapor','absensi','ujian online','cbt','pembayaran online','sistem'],
+  a:`Layanan sekolah beralih ke sistem digital secara bertahap mulai <b>Januari 2027</b>:<ul><li>Pembayaran online &amp; kuitansi otomatis</li><li>SPMB online</li><li>Absensi &amp; notifikasi ke orang tua</li><li>Rapor digital</li><li>Ujian berbasis komputer</li></ul>Data sensitif dienkripsi sesuai UU Pelindungan Data Pribadi.`,
+  act:()=>[A('#digital','Sekolah digital')]},
+ {id:'privasi',k:['data pribadi','privasi','privacy','data anak','kerahasiaan','uu pdp'],
+  a:`Sistem sekolah dirancang mengikuti UU Pelindungan Data Pribadi: data sensitif dienkripsi, akses dibatasi sesuai peran, setiap perubahan tercatat, dan data dicadangkan rutin. Data SPMB hanya dipakai untuk keperluan penerimaan murid.`},
+ {id:'visi',k:['visi','misi','nilai','filosofi','ki hajar','amanah','tentang sekolah','profil sekolah','sejarah','berdiri','tahun berapa'],
+  a:`SMA Tunas Markatin berdiri sejak <b>1990</b>. Visi 2029: <i>"Menjadi SMA digital terakreditasi A yang menuntun setiap murid menemukan arah hidupnya, tumbuh dewasa, mandiri, dan beradab — siap kuliah, siap kerja, siap berwirausaha."</i> Nilai inti kami: <b>AMANAH</b> — Adab, Mandiri, Arah, Nalar, Akuntabel, Harmoni.`,
+  act:()=>[A('#tentang','Tentang kami')]},
+ {id:'guru',k:['guru','pengajar','jumlah siswa','jumlah murid','kelas','rombel','rasio','berapa murid','per kelas'],
+  a:`Sekolah kami berukuran kecil sehingga perhatian ke murid lebih personal — rasio guru dan murid sekitar <b>1 : 16</b>. Mayoritas guru sudah bersertifikat pendidik.`},
+ {id:'jadwal',k:['jam','jam sekolah','jam masuk','jam pulang','jadwal','hari sekolah','sabtu','masuk jam','pulang jam','shift'],
+  a:`Jadwal belajar dan jam masuk–pulang terbaru akan dijelaskan admin agar sesuai kalender akademik berjalan.`,
+  act:()=>[WA_BTN('Halo Admin, saya ingin tahu jadwal/jam belajar di SMA Tunas Markatin.')]},
+ {id:'seragam',k:['seragam','baju','sepatu','atribut','buku','perlengkapan'],
+  a:`Informasi seragam dan perlengkapan disampaikan saat daftar ulang. Untuk rincian dan biayanya, silakan tanyakan admin.`,
+  act:()=>[WA_BTN('Halo Admin, saya ingin bertanya soal seragam dan perlengkapan sekolah.')]},
+ {id:'mitra',k:['mitra','kemitraan','kerja sama','kerjasama','perusahaan','csr','sponsor','alumni','donasi'],
+  a:`Kami mengundang dunia usaha, UMKM, alumni, dan orang tua menjadi mitra dalam 3 level:<ul><li><b>Level 1</b> — terima kunjungan / narasumber tamu</li><li><b>Level 2</b> — job shadowing &amp; magang mikro</li><li><b>Level 3</b> — mitra karier &amp; rekrutmen</li></ul>`,
+  act:()=>[A('#mitra','Kemitraan'),WA_BTN('Halo SMA Tunas Markatin, saya tertarik menjadi mitra sekolah.')]},
+ {id:'pindah',k:['pindahan','mutasi','pindah sekolah','transfer','masuk kelas 11','masuk kelas xi','kelas 11','kelas 12'],
+  a:`Untuk murid pindahan (mutasi), ketersediaan kursi dan persyaratannya dicek langsung oleh admin.`,
+  act:()=>[WA_BTN('Halo Admin, saya ingin bertanya tentang pendaftaran murid pindahan.')]},
+ {id:'status',k:['negeri','swasta','status sekolah','npsn','terdaftar','resmi','izin'],
+  a:`SMA Tunas Markatin adalah <b>SMA swasta</b> yang terdaftar di Kemendikdasmen dengan <b>NPSN 20103190</b>, berdiri sejak 1990, dan saat ini terakreditasi B dengan target A pada 2028.`},
+ {id:'pimpinan',k:['kepala sekolah','kepsek','pimpinan','yayasan','wakil kepala','pengurus'],
+  a:`Untuk informasi pimpinan sekolah dan yayasan, atau untuk membuat janji bertemu kepala sekolah, silakan hubungi admin.`,
+  act:()=>[WA_BTN('Halo Admin, saya ingin membuat janji / bertanya kepada pimpinan SMA Tunas Markatin.')]},
+ {id:'terima',k:['terima kasih','makasih','thanks','thank you','trims','oke','ok','baik','siap'],
+  a:`Sama-sama. Semoga membantu. Jika ada pertanyaan lain, silakan ketik kembali.`}
+];
+const CHIPS=['Cara daftar SPMB','Biaya sekolah','Tiga Jalur itu apa?','Bedanya dengan SMK','Akreditasi','Lokasi sekolah','Fasilitas','KJP / PIP','Kontak admin'];
+
+const SYN=[[/\bgmn\b|\bgimana\b|\bbgmn\b/g,'bagaimana'],[/\bbrp\b/g,'berapa'],[/\bsklh\b/g,'sekolah'],[/\bdmn\b/g,'dimana'],[/\bdftr\b/g,'daftar'],[/\bkpn\b/g,'kapan'],[/\byg\b/g,'yang'],[/\bgak\b|\bnggak\b|\bga\b|\btdk\b/g,'tidak'],[/\bbs\b|\bbsa\b/g,'bisa'],[/\bmsk\b/g,'masuk'],[/\bortu\b/g,'orang tua']];
+function norm(s){s=' '+s.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim()+' ';SYN.forEach(([r,v])=>s=s.replace(r,v));return s}
+function match(q){
+  const t=norm(q); let best=null,score=0;
+  for(const it of KB){let s=0;for(const k of it.k){const nk=' '+norm(k).trim()+' ';if(t.includes(nk))s+=1+nk.trim().split(' ').length*0.6;else if(nk.trim().length>=5&&t.includes(nk.trim()))s+=0.8}
+    if(it.id==='salam'||it.id==='terima')s*=0.55;
+    if(s>score){score=s;best=it}}
+  return score>=0.8?best:null;
+}
+const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const fab=document.getElementById('cbFab'),panel=document.getElementById('cbPanel'),log=document.getElementById('cbLog'),
+      form=document.getElementById('cbForm'),input=document.getElementById('cbInput'),chips=document.getElementById('cbChips'),closeB=document.getElementById('cbClose');
+let started=false;
+function add(html,who,acts){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=html+(acts&&acts.length?`<div class="acts">${acts.join('')}</div>`:'');log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function reply(q){
+  const t=document.createElement('div');t.className='msg bot typing';t.innerHTML='<i></i><i></i><i></i>';t.setAttribute('aria-label','Asisten sedang mengetik');log.appendChild(t);log.scrollTop=log.scrollHeight;
+  setTimeout(()=>{t.remove();const it=match(q);
+    if(it){add(it.a,'bot',it.act?it.act():null)}
+    else add(`Maaf, saya belum bisa menjawab pertanyaan itu dengan tepat. Pertanyaan Anda bisa saya teruskan ke admin sekolah lewat WhatsApp.`,'bot',[WA_BTN(`Halo Admin SMA Tunas Markatin, saya ingin bertanya: ${q}`)]);
+  },450+Math.min(q.length*8,500));
+}
+function ask(q){q=q.trim();if(!q)return;add(esc(q),'me');reply(q)}
+function open(){panel.hidden=false;fab.setAttribute('aria-expanded','true');
+  if(!started){started=true;add(`Halo, saya <b>Asisten Markatin</b>. Tanyakan apa saja seputar pendaftaran, Tiga Jalur, biaya &amp; bantuan, fasilitas, atau lokasi sekolah.`,'bot')}
+  setTimeout(()=>input.focus(),50)}
+function close(){panel.hidden=true;fab.setAttribute('aria-expanded','false');fab.focus()}
+CHIPS.forEach(c=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.addEventListener('click',()=>ask(c));chips.appendChild(b)});
+fab.addEventListener('click',open);closeB.addEventListener('click',close);
+panel.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+form.addEventListener('submit',e=>{e.preventDefault();const q=input.value;input.value='';ask(q)});
+if(location.hash==='#tanya')open();
+const ol=document.getElementById('openCbLink');if(ol)ol.addEventListener('click',e=>{e.preventDefault();open()});
+window.__cbMatch=q=>{const m=match(q);return m?m.id:null};
+})();
 </script>
 
 </body>
