@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMA Tunas Markatin</title>
+<meta name="author" content="SMA Tunas Markatin">
+<meta name="application-name" content="SMA Tunas Markatin">
+<meta name="description" content="SMA Tunas Markatin, Pulo Gadung, Jakarta Timur — sekolah yang menuntun murid menjadi terarah, dewasa, mandiri, dan beradab. Siap kuliah, siap kerja, siap berwirausaha.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --bg2:#FBF7EF; --bg3:#F3ECDD; --surface:#FFFFFF;
+  --ink:#14213D; --ink2:#3D4760; --muted:#6B7385; --line:#E6E0D3;
+  --navy:#14213D; --navy2:#1F3160; --on-navy:#D5DBEA;
+  --gold:#E0A43A; --gold-ink:#8A5A00; --gold-soft:#FBEFD6;
+  --kuliah:#0B9486; --kerja:#4263EB; --wira:#C77700;
+  --kuliah-soft:#E2F4F1; --kerja-soft:#E8EDFD; --wira-soft:#FBF0DD;
+  --kuliah-ink:#066B61; --kerja-ink:#2A44B8; --wira-ink:#8A5200;
+  --shadow:0 1px 2px rgba(20,33,61,.06),0 8px 24px rgba(20,33,61,.06);
+  --radius:18px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1628; --bg2:#131D33; --bg3:#18233D; --surface:#172240;
+  --ink:#EEF1F7; --ink2:#C3CADB; --muted:#8F99B0; --line:#26324F;
+  --navy:#0A1122; --navy2:#1A2747; --on-navy:#C9D1E4;
+  --gold:#E8B45A; --gold-ink:#F0C473; --gold-soft:#2A2414;
+  --kuliah-soft:#0F2E2D; --kerja-soft:#16214A; --wira-soft:#2E2210;
+  --kuliah-ink:#52D1C3; --kerja-ink:#9FB1FF; --wira-ink:#F2B45A;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}}
+:root[data-theme="dark"]{
+  --bg:#0E1628; --bg2:#131D33; --bg3:#18233D; --surface:#172240;
+  --ink:#EEF1F7; --ink2:#C3CADB; --muted:#8F99B0; --line:#26324F;
+  --navy:#0A1122; --navy2:#1A2747; --on-navy:#C9D1E4;
+  --gold:#E8B45A; --gold-ink:#F0C473; --gold-soft:#2A2414;
+  --kuliah-soft:#0F2E2D; --kerja-soft:#16214A; --wira-soft:#2E2210;
+  --kuliah-ink:#52D1C3; --kerja-ink:#9FB1FF; --wira-ink:#F2B45A;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink2);font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.serif{font-family:"Fraunces",Georgia,serif}
+h1,h2,h3{color:var(--ink);line-height:1.15}
+h2{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:12px}
+.lead{font-size:18px;color:var(--ink2);max-width:680px}
+section{padding:96px 0}
+.sec-head{margin-bottom:44px;max-width:760px}
+.sec-head p{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;transition:transform .15s,background .15s;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:#14213D}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-outline{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* NAV */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .mark{width:38px;height:38px;border-radius:11px;background:var(--navy);display:grid;place-items:center;flex:none}
+.brand b{display:block;font-size:15px;color:var(--ink);line-height:1.1}
+.brand small{font-size:11.5px;color:var(--muted)}
+.links{display:flex;gap:4px;list-style:none}
+.links a{text-decoration:none;font-size:14.5px;font-weight:600;color:var(--ink2);padding:8px 11px;border-radius:999px;white-space:nowrap}
+.brand span,.nav-cta .btn{white-space:nowrap}
+.links a:hover{background:var(--bg2);color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.menu-btn{display:none}
+.mobile-menu{display:none}
+@media (max-width:1180px){
+  .links,.nav-cta .btn{display:none}
+  .menu-btn{display:grid}
+  .mobile-menu.open{display:block;border-top:1px solid var(--line);padding:10px 24px 18px;background:var(--bg)}
+  .mobile-menu a{display:block;padding:11px 0;text-decoration:none;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:14px;justify-content:center;width:100%}
+}
+
+/* HERO */
+.hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden;padding:88px 0 96px}
+.hero:before{content:"";position:absolute;right:-220px;top:-260px;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2A4178,transparent 68%);opacity:.9}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.pills span{border:1px solid #3a4d7a;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600;color:#DDE3F0}
+.hero h1{font-family:"Fraunces",Georgia,serif;font-size:clamp(38px,6vw,66px);font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.04}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+.hero p.sub{font-size:19px;color:#D5DBEA;margin:22px 0 30px;max-width:560px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.ring-wrap{position:relative;max-width:420px;margin-left:auto;width:100%}
+.ring-legend{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:18px;font-size:13.5px;color:#DDE3F0}
+.ring-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:middle}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.ring-wrap{margin:0 auto;max-width:320px}}
+
+/* STATS */
+.stats{margin-top:-44px;position:relative;z-index:2}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.stat{padding:26px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .v{font-family:"Fraunces",Georgia,serif;font-size:36px;font-weight:700;color:var(--ink);line-height:1}
+.stat .l{font-size:14px;color:var(--muted);margin-top:8px}
+@media (max-width:760px){.stats .grid{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.quote{border-left:3px solid var(--gold);padding:4px 0 4px 22px;margin-top:28px}
+.quote p{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:21px;color:var(--ink);line-height:1.45}
+.quote small{display:block;margin-top:10px;color:var(--muted);font-size:14px}
+.vision{background:var(--navy);color:var(--on-navy);border-radius:var(--radius);padding:34px;border:1px solid var(--line)}
+.vision .eyebrow{color:var(--gold)}
+.vision p.v{font-family:"Fraunces",Georgia,serif;font-size:23px;font-weight:700;color:#fff;line-height:1.35}
+.missions{list-style:none;counter-reset:m;margin-top:22px;display:grid;gap:10px}
+.missions li{counter-increment:m;display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:15px}
+.missions li:before{content:counter(m);font-family:"Fraunces",Georgia,serif;font-weight:700;color:var(--gold);font-size:19px;line-height:1.3}
+.values{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:56px}
+.value{background:var(--bg2);border-radius:14px;padding:18px 16px}
+.value b{font-family:"Fraunces",Georgia,serif;font-size:30px;color:var(--gold-ink);display:block;line-height:1}
+.value h3{font-size:16px;margin:8px 0 4px}
+.value p{font-size:13.5px;color:var(--muted);line-height:1.45}
+@media (max-width:900px){.about{grid-template-columns:1fr}.values{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:520px){.values{grid-template-columns:repeat(2,1fr)}}
+
+/* PROFIL */
+.alt{background:var(--bg2)}
+.goals{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.goal{border-radius:var(--radius);padding:28px 24px;color:#fff;display:flex;flex-direction:column;min-height:330px}
+.goal .L{font-family:"Fraunces",Georgia,serif;font-size:54px;font-weight:700;line-height:1}
+.goal h3{color:#fff;font-size:22px;margin:10px 0 6px}
+.goal p{color:rgba(255,255,255,.86);font-size:15px}
+.goal .prog{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.22);font-size:14px;color:#fff}
+.goal .prog b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:4px}
+@media (max-width:980px){.goals{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.goals{grid-template-columns:1fr}.goal{min-height:0}}
+.dims{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dims span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:600;color:var(--ink2)}
+
+/* JALUR */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.tab{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-family:inherit;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:10px}
+.tab .dot{width:11px;height:11px;border-radius:50%}
+.tab[aria-selected="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.panel{display:none;border-radius:var(--radius);padding:36px;border-top:6px solid}
+.panel.active{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px}
+.panel .pct{font-family:"Fraunces",Georgia,serif;font-size:72px;font-weight:700;line-height:1}
+.panel h3{font-size:26px;font-family:"Fraunces",Georgia,serif;margin:8px 0 10px}
+.p-kuliah{background:var(--kuliah-soft);border-color:var(--kuliah)} .p-kuliah .pct{color:var(--kuliah-ink)}
+.p-kerja{background:var(--kerja-soft);border-color:var(--kerja)} .p-kerja .pct{color:var(--kerja-ink)}
+.p-wira{background:var(--wira-soft);border-color:var(--wira)} .p-wira .pct{color:var(--wira-ink)}
+.steps{display:grid;gap:14px}
+.step{background:var(--surface);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:78px 1fr;gap:14px}
+.step .k{font-weight:800;color:var(--ink);font-size:14px}
+.step .k small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+.step p{font-size:15px}
+.note{margin-top:22px;font-size:14.5px;color:var(--muted);max-width:820px}
+@media (max-width:820px){.panel.active{grid-template-columns:1fr;padding:26px}.step{grid-template-columns:1fr;gap:4px}}
+
+/* PROGRAMS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.card .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px;background:var(--gold-soft);color:var(--gold-ink)}
+.card h3{margin-bottom:8px}
+.card p{font-size:15px}
+.card ul{margin-top:10px;padding-left:18px;font-size:14.5px}
+.card li{margin-bottom:4px}
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
+
+/* DIGITAL */
+.digital{background:var(--navy);color:var(--on-navy)}
+.digital h2,.digital h3{color:#fff}
+.digital .eyebrow{color:var(--gold)}
+.digital .lead{color:#D5DBEA}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
+.dcard{background:var(--navy2);border-radius:16px;padding:22px;border:1px solid rgba(255,255,255,.07)}
+.dcard .ic{color:var(--gold);margin-bottom:12px}
+.dcard h3{font-size:17px;margin-bottom:6px}
+.dcard p{font-size:14.5px;color:#C3CADB}
+@media (max-width:900px){.dgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.dgrid{grid-template-columns:1fr}}
+.stair{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:end;height:300px}
+.st{border-radius:14px 14px 0 0;padding:16px;color:#fff;position:relative;display:flex;flex-direction:column}
+.st .lv{font-family:"Fraunces",Georgia,serif;font-size:28px;font-weight:700}
+.st b{font-size:15px}
+.st small{font-size:13px;opacity:.85;margin-top:4px;line-height:1.4}
+.st .when{margin-top:auto;padding-top:8px;font-size:12.5px;font-weight:800;color:var(--gold)}
+.here{position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:var(--gold);color:#14213D;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap}
+@media (max-width:760px){.stair{grid-template-columns:1fr;height:auto;gap:8px}.st{height:auto!important;border-radius:12px}.here{position:static;transform:none;align-self:flex-start;margin-bottom:8px}}
+
+/* AKREDITASI */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.timeline:before{content:"";position:absolute;left:0;right:0;top:15px;height:3px;background:var(--line)}
+.tl{position:relative;padding:40px 18px 0 0}
+.tl:before{content:"";position:absolute;left:0;top:6px;width:21px;height:21px;border-radius:50%;background:var(--bg2);border:3px solid var(--gold)}
+.tl.done:before{background:var(--gold)}
+.tl .when{font-weight:800;color:var(--gold-ink);font-size:13.5px;letter-spacing:.04em}
+.tl h3{font-size:17px;margin:6px 0}
+.tl p{font-size:14.5px}
+.comp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.comp .card{box-shadow:none}
+.comp .tag{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:820px){.timeline{grid-template-columns:1fr;gap:18px}.timeline:before{left:9px;right:auto;top:0;bottom:0;width:3px;height:auto}.tl{padding:0 0 0 38px}.comp{grid-template-columns:1fr}}
+
+/* FASILITAS */
+.fac{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.fac div{background:var(--bg2);border-radius:14px;padding:18px;font-weight:600;color:var(--ink);font-size:15px;display:flex;gap:12px;align-items:center}
+.fac svg{color:var(--gold-ink);flex:none}
+@media (max-width:900px){.fac{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.fac{grid-template-columns:1fr}}
+.fac div,.stat,.value{min-width:0;overflow-wrap:anywhere}
+
+/* SPMB */
+.spmb{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.flow{list-style:none;counter-reset:f;display:grid;gap:12px}
+.flow li{counter-increment:f;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 64px;position:relative}
+.flow li:before{content:counter(f);position:absolute;left:18px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.flow b{color:var(--ink);display:block}
+.flow span{font-size:14.5px}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.form h3{margin-bottom:4px}
+.form label{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin:14px 0 6px}
+.form input,.form select,.form textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:15px;background:var(--bg);color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
+.form .btn{width:100%;justify-content:center;margin-top:18px;background:#25D366;color:#073B1E}
+.form .fine{font-size:12.5px;color:var(--muted);margin-top:10px}
+.aid{margin-top:18px;background:var(--gold-soft);border-radius:14px;padding:16px 18px;font-size:14.5px;color:var(--ink)}
+@media (max-width:900px){.spmb{grid-template-columns:1fr}}
+
+/* MITRA */
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.level{border-radius:var(--radius);padding:26px;background:var(--surface);border:1px solid var(--line)}
+.level .n{font-family:"Fraunces",Georgia,serif;font-size:15px;font-weight:700;color:var(--gold-ink);letter-spacing:.06em}
+.level h3{margin:6px 0 8px}
+.level p{font-size:15px}
+@media (max-width:820px){.levels{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:840px}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:700;color:var(--ink);font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:24px;line-height:1;color:var(--gold-ink);flex:none}
+details[open] summary:after{content:"–"}
+details p{margin-top:10px;font-size:15.5px}
+
+/* CONTACT & FOOTER */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cbox{background:var(--bg2);border-radius:var(--radius);padding:28px}
+.cline{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.cline svg{color:var(--gold-ink);flex:none;margin-top:3px}
+.cline b{display:block;color:var(--ink)}
+.cline a{color:var(--ink2)}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+footer{background:var(--navy);color:#AEB8D0;padding:48px 0 32px;font-size:14px}
+footer .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h4{color:#fff;font-size:14px;margin-bottom:10px}
+footer a{text-decoration:none;display:block;padding:3px 0;color:#C3CADB}
+footer a:hover{color:#fff}
+footer .bottom{border-top:1px solid #2A3A62;margin-top:32px;padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
+@media (max-width:760px){footer .fgrid{grid-template-columns:1fr}}
+.reveal{opacity:1}
+@media print{.reveal{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#beranda" aria-label="SMA Tunas Markatin — beranda">
+      <span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="#0B9486" stroke-width="3" stroke-dasharray="16 37.4" transform="rotate(-90 12 12)"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="#4263EB" stroke-width="3" stroke-dasharray="21.4 32" stroke-dashoffset="-16" transform="rotate(-90 12 12)"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="#E0A43A" stroke-width="3" stroke-dasharray="16 37.4" stroke-dashoffset="-37.4" transform="rotate(-90 12 12)"/></svg></span>
+      <span><b>SMA Tunas Markatin</b><small>Pulo Gadung · Jakarta Timur</small></span>
+    </a>
+    <ul class="links">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#profil">Profil Lulusan</a></li>
+      <li><a href="#jalur">Tiga Jalur</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#digital">Sekolah Digital</a></li>
+      <li><a href="#spmb">SPMB</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="icon-btn" id="themeBtn" aria-label="Ganti tema terang/gelap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <a class="btn btn-gold" href="#spmb">Daftar SPMB 2027</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu seluler">
+    <a href="#tentang">Tentang</a><a href="#profil">Profil Lulusan</a><a href="#jalur">Tiga Jalur</a><a href="#program">Program</a><a href="#digital">Sekolah Digital</a><a href="#akreditasi">Menuju Akreditasi A</a><a href="#spmb">SPMB</a><a href="#mitra">Kemitraan</a><a href="#kontak">Kontak</a>
+    <a class="btn btn-gold" href="#spmb">Daftar SPMB 2027</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="beranda">
+  <div class="wrap">
+    <div>
+      <div class="pills"><span>Terarah</span><span>Dewasa</span><span>Mandiri</span><span>Beradab</span></div>
+      <h1>Siap kuliah.<br>Siap kerja.<br><em>Siap berwirausaha.</em></h1>
+      <p class="sub">SMA Tunas Markatin menuntun setiap murid menemukan arah hidupnya — lewat pembelajaran mendalam, pembinaan karakter, dan sekolah yang sepenuhnya digital.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="#spmb">Info Pendaftaran
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#jalur">Kenali Tiga Jalur</a>
+      </div>
+    </div>
+    <div class="ring-wrap">
+      <svg viewBox="0 0 200 200" role="img" aria-label="Arah lulusan: 30 persen kuliah, 40 persen kerja, 30 persen wirausaha">
+        <circle cx="100" cy="100" r="78" fill="none" stroke="#0B9486" stroke-width="20" stroke-dasharray="145 345.1" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="78" fill="none" stroke="#4263EB" stroke-width="20" stroke-dasharray="194 296.1" stroke-dashoffset="-147" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="78" fill="none" stroke="#E0A43A" stroke-width="20" stroke-dasharray="145 345.1" stroke-dashoffset="-343" transform="rotate(-90 100 100)"/>
+        <text x="100" y="98" text-anchor="middle" fill="#fff" font-family="Fraunces, Georgia, serif" font-size="27" font-weight="700">30·40·30</text>
+        <text x="100" y="118" text-anchor="middle" fill="#C9D1E4" font-family="Plus Jakarta Sans, sans-serif" font-size="8" letter-spacing="1.2">ARAH LULUSAN</text>
+      </svg>
+      <div class="ring-legend"><span><i style="background:#0B9486"></i>Kuliah 30%</span><span><i style="background:#4263EB"></i>Kerja 40%</span><span><i style="background:#E0A43A"></i>Wirausaha 30%</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap stats">
+  <div class="grid">
+    <div class="stat"><div class="v">1990</div><div class="l">Berdiri dan melayani warga Jakarta Timur</div></div>
+    <div class="stat"><div class="v">±4.800 m²</div><div class="l">Lahan sekolah dengan lapangan luas</div></div>
+    <div class="stat"><div class="v">1 : 16</div><div class="l">Rasio guru dan murid — perhatian lebih personal</div></div>
+    <div class="stat"><div class="v">3 jalur</div><div class="l">Kuliah · Kerja · Wirausaha sesuai bakat murid</div></div>
+  </div>
+</div>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="wrap">
+    <div class="about">
+      <div class="reveal">
+        <span class="eyebrow">Tentang kami</span>
+        <h2>Menuntun, bukan memaksa</h2>
+        <p class="lead" style="margin-top:16px">Kami berpijak pada pemikiran Ki Hajar Dewantara: pendidikan menuntun potensi setiap anak sesuai <b>kodrat alam</b> (bakat dan karakternya) dan <b>kodrat zaman</b> (kebutuhan masa kini). Guru hadir sebagai <i>pamong</i> — di depan memberi teladan, di tengah membangun semangat, di belakang memberi dorongan.</p>
+        <p style="margin-top:14px">Sekolah, keluarga, dan masyarakat kami ajak bekerja sebagai satu kesatuan — <b>Tri Pusat Pendidikan</b>. Teknologi digital adalah cara kami menjawab kodrat zaman; budi pekerti adalah jangkarnya.</p>
+        <div class="quote"><p>"Tuntunan, bukan paksaan — sesuai kodrat alam dan kodrat zaman."</p><small>Terinspirasi ajaran Ki Hajar Dewantara</small></div>
+      </div>
+      <div class="vision reveal">
+        <span class="eyebrow">Visi 2029</span>
+        <p class="v">"Menjadi SMA digital terakreditasi A yang menuntun setiap murid menemukan arah hidupnya, tumbuh dewasa, mandiri, dan beradab — siap kuliah, siap kerja, siap berwirausaha."</p>
+        <ol class="missions">
+          <li>Menuntun arah hidup murid melalui bimbingan karier dan pilihan Tiga Jalur.</li>
+          <li>Menyelenggarakan pembelajaran mendalam yang diperkuat teknologi dan kecerdasan artifisial secara etis.</li>
+          <li>Membekali keterampilan hidup dan kerja yang tersertifikasi, serta pengalaman kerja dan usaha nyata.</li>
+          <li>Menumbuhkan adab, karakter, kedewasaan, komunikasi santun, dan pola pikir positif.</li>
+          <li>Mewujudkan tata kelola sekolah digital yang transparan, akuntabel, dan berbasis data.</li>
+          <li>Membangun kemitraan dengan keluarga, alumni, dunia usaha, kampus, dan pemerintah.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="values reveal" aria-label="Nilai inti AMANAH">
+      <div class="value"><b>A</b><h3>Adab</h3><p>Santun dalam kata, sikap, dan jejak digital</p></div>
+      <div class="value"><b>M</b><h3>Mandiri</h3><p>Mampu mengurus diri, belajar, dan penghidupan</p></div>
+      <div class="value"><b>A</b><h3>Arah</h3><p>Punya tujuan hidup dan rencana yang jelas</p></div>
+      <div class="value"><b>N</b><h3>Nalar</h3><p>Berpikir kritis, positif, dan berbasis data</p></div>
+      <div class="value"><b>A</b><h3>Akuntabel</h3><p>Jujur, bertanggung jawab, taat hukum</p></div>
+      <div class="value"><b>H</b><h3>Harmoni</h3><p>Kolaboratif dan peduli sesama</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIL LULUSAN -->
+<section class="alt" id="profil">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Profil lulusan</span>
+      <h2>Empat hal yang kami janjikan untuk setiap lulusan</h2>
+      <p class="lead">Setiap tujuan punya program yang terjadwal dan indikator yang bisa diukur, sejalan dengan delapan dimensi profil lulusan nasional.</p>
+    </div>
+    <div class="goals">
+      <article class="goal reveal" style="background:#14213D"><div class="L">T</div><h3>Terarah</h3><p>Mengerti arah dan tujuan hidup, punya rencana pasca-lulus yang realistis.</p><div class="prog"><b>Kompas Hidupku</b>Asesmen minat-bakat, rencana hidup 5 tahun, mentoring alumni, konseling karier.</div></article>
+      <article class="goal reveal" style="background:#1F3A6E"><div class="L">D</div><h3>Dewasa</h3><p>Siap dan matang secara hukum: paham hak, kewajiban, dan akibat hukum dari tindakannya.</p><div class="prog"><b>Siap Dewasa 17+</b>KTP-el &amp; pemilih pemula, SIM, literasi keuangan, kontrak kerja, UU ITE &amp; data pribadi.</div></article>
+      <article class="goal reveal" style="background:#0B6E66"><div class="L">M</div><h3>Mandiri</h3><p>Mampu menjalankan hidupnya dengan keterampilan yang didapat dari sekolah.</p><div class="prog"><b>Tiga Jalur</b>Sertifikat kompetensi, magang mikro, unit usaha siswa, keterampilan hidup.</div></article>
+      <article class="goal reveal" style="background:#8A5A00"><div class="L">B</div><h3>Beradab</h3><p>Santun, berkomunikasi dengan baik, dan selalu berpikiran positif.</p><div class="prog"><b>Markatin Beradab</b>7 Kebiasaan Anak Indonesia Hebat, public speaking, growth mindset, konseling.</div></article>
+    </div>
+    <div class="dims reveal"><b style="color:var(--ink);font-size:14px;margin-right:4px">8 dimensi profil lulusan:</b><span>Keimanan &amp; ketakwaan</span><span>Kewargaan</span><span>Penalaran kritis</span><span>Kreativitas</span><span>Kolaborasi</span><span>Kemandirian</span><span>Kesehatan</span><span>Komunikasi</span></div>
+  </div>
+</section>
+
+<!-- TIGA JALUR -->
+<section id="jalur">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Arah lulusan</span>
+      <h2>Tiga Jalur: kuliah, kerja, atau wirausaha</h2>
+      <p class="lead">Semua murid mendapat fondasi ketiga jalur di kelas X. Di akhir kelas X, murid memilih jalur bersama orang tua dan guru BK — lalu mendalaminya di kelas XI dan XII.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Pilih jalur">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p1" id="t1"><span class="dot" style="background:var(--kuliah)"></span>Kuliah · 30%</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2"><span class="dot" style="background:var(--kerja)"></span>Kerja · 40%</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3"><span class="dot" style="background:var(--wira)"></span>Wirausaha · 30%</button>
+    </div>
+    <div class="panel p-kuliah active" role="tabpanel" id="p1" aria-labelledby="t1">
+      <div><div class="pct">30%</div><h3>Siap lolos PTN/PTS &amp; beasiswa</h3><p>Untuk murid yang ingin melanjutkan ke perguruan tinggi. Mapel pilihan disesuaikan dengan program studi tujuan, dan seluruh murid jalur ini mengikuti Tes Kemampuan Akademik (TKA) yang menjadi syarat SNBP.</p></div>
+      <div class="steps">
+        <div class="step"><div class="k">Kelas X<small>Fondasi</small></div><p>Asesmen minat-bakat, eksplorasi jurusan kuliah, kunjungan kampus di sekitar Rawamangun.</p></div>
+        <div class="step"><div class="k">Kelas XI<small>Pendalaman</small></div><p>Mapel pilihan akademik (mis. Matematika Tingkat Lanjut, Biologi, Ekonomi), latihan TKA lewat ujian berbasis komputer, portofolio prestasi.</p></div>
+        <div class="step"><div class="k">Kelas XII<small>Transisi</small></div><p>TKA, klinik SNBP/SNBT, pendampingan beasiswa, riset mini atau karya ilmiah.</p></div>
+      </div>
+    </div>
+    <div class="panel p-kerja" role="tabpanel" id="p2" aria-labelledby="t2">
+      <div><div class="pct">40%</div><h3>Siap kerja entry-level bersertifikat</h3><p>Untuk murid yang ingin langsung bekerja. Fokus pada keterampilan yang paling dicari: administrasi perkantoran digital, layanan pelanggan, pemasaran digital dan konten, serta dukungan TI dasar.</p></div>
+      <div class="steps">
+        <div class="step"><div class="k">Kelas X<small>Fondasi</small></div><p>Literasi digital &amp; aplikasi perkantoran, etika komunikasi kerja, kunjungan kantor dan UMKM.</p></div>
+        <div class="step"><div class="k">Kelas XI<small>Pendalaman</small></div><p>Mapel pilihan Koding &amp; Kecerdasan Artifisial, Informatika, Bahasa Inggris Tingkat Lanjut. Semester 3: bootcamp soft skill &amp; sertifikasi dasar. Semester 4: job shadowing di mitra.</p></div>
+        <div class="step"><div class="k">Kelas XII<small>Transisi</small></div><p>Magang mikro 2–4 minggu saat libur, sertifikasi lanjutan, CV &amp; simulasi wawancara, penyaluran lewat Pusat Karier &amp; Alumni.</p></div>
+      </div>
+    </div>
+    <div class="panel p-wira" role="tabpanel" id="p3" aria-labelledby="t3">
+      <div><div class="pct">30%</div><h3>Siap merintis dan menjalankan usaha</h3><p>Untuk murid yang ingin berwirausaha. Belajar dari ide sampai uji pasar, dengan pembukuan digital dan pendampingan dari alumni serta pelaku UMKM.</p></div>
+      <div class="steps">
+        <div class="step"><div class="k">Kelas X<small>Fondasi</small></div><p>Kewirausahaan dasar dalam kokurikuler, mengenal UMKM sekitar sekolah.</p></div>
+        <div class="step"><div class="k">Kelas XI<small>Pendalaman</small></div><p>Mapel pilihan Prakarya &amp; Kewirausahaan dan Ekonomi. Inkubator Markatin: validasi ide, uji pasar, unit usaha siswa.</p></div>
+        <div class="step"><div class="k">Kelas XII<small>Transisi</small></div><p>Menjalankan usaha, legalitas sederhana (NIB), dan Demo Day tahunan bersama alumni dan UMKM.</p></div>
+      </div>
+    </div>
+    <p class="note reveal">Angka 30 · 40 · 30 adalah target komposisi tujuan lulusan enam bulan setelah lulus, bukan kuota. Murid memilih jalurnya sendiri melalui asesmen dan konseling, dan masih bisa pindah jalur di kelas XI. Model Tiga Jalur berlaku penuh mulai kelas XI tahun ajaran 2027/2028.</p>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="alt" id="program">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Program unggulan</span>
+      <h2>Dari rencana hidup sampai Demo Day</h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div><h3>Kompas Hidupku</h3><p>Bimbingan karier sejak hari pertama: asesmen minat-bakat, rencana hidup lima tahun, dan mentor alumni untuk setiap kelompok kecil murid.</p></article>
+      <article class="card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Siap Dewasa 17+</h3><p>Literasi hukum dan kewargaan untuk remaja yang segera dewasa.</p><ul><li>KTP-el &amp; pendidikan pemilih pemula</li><li>SIM &amp; keselamatan berlalu lintas</li><li>Rekening, literasi keuangan, kontrak kerja</li><li>UU ITE, data pribadi, anti-narkoba</li></ul></article>
+      <article class="card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div><h3>Markatin Beradab</h3><p>Karakter dibangun lewat kebiasaan: 7 Kebiasaan Anak Indonesia Hebat — bangun pagi, beribadah, berolahraga, makan sehat, gemar belajar, bermasyarakat, tidur cepat — dicatat dalam jurnal harian digital.</p></article>
+      <article class="card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/></svg></div><h3>Koding &amp; Kecerdasan Artifisial</h3><p>Mapel pilihan sesuai kebijakan nasional sejak 2025/2026: berpikir komputasional, membuat program sederhana, dan menggunakan KA secara bijak dan etis.</p></article>
+      <article class="card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div><h3>Inkubator &amp; Unit Usaha Siswa</h3><p>Murid mengelola usaha nyata — kantin, merchandise, jasa desain dan konten, jasa acara — lengkap dengan pembukuan digital. Puncaknya: Demo Day tahunan.</p></article>
+      <article class="card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></div><h3>Pusat Karier &amp; Alumni</h3><p>Menghubungkan murid dengan mitra kerja, magang mikro, dan alumni. Setiap lulusan dipantau lewat tracer study enam bulan setelah lulus.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL -->
+<section class="digital" id="digital">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Sekolah digital</span>
+      <h2>Semua layanan sekolah, satu sistem</h2>
+      <p class="lead">Kami telah membangun Sistem Informasi Manajemen SMA sendiri yang aman dan patuh aturan pelindungan data pribadi. Mulai Januari 2027, layanan sekolah berpindah ke sistem ini secara bertahap.</p>
+    </div>
+    <div class="dgrid">
+      <div class="dcard reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><h3>Pembayaran online</h3><p>Tagihan jelas, bayar lewat berbagai metode, kuitansi otomatis untuk orang tua.</p></div>
+      <div class="dcard reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div><h3>SPMB online</h3><p>Pendaftaran murid baru, unggah dokumen, dan pantau status dari ponsel.</p></div>
+      <div class="dcard reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Absensi &amp; notifikasi</h3><p>Kehadiran harian tercatat, orang tua mendapat pemberitahuan.</p></div>
+      <div class="dcard reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>Rapor digital</h3><p>e-Rapor Kurikulum Merdeka dengan deskripsi perkembangan setiap murid.</p></div>
+      <div class="dcard reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Ujian berbasis komputer</h3><p>Asesmen dan latihan TKA dengan sistem yang tetap berjalan saat koneksi terputus.</p></div>
+      <div class="dcard reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Data terlindungi</h3><p>Data sensitif dienkripsi, akses berbasis peran, dan cadangan data teruji.</p></div>
+    </div>
+    <h3 class="reveal" style="margin-bottom:44px">Perjalanan menuju sekolah digital penuh</h3>
+    <div class="stair reveal" aria-label="Tingkat kematangan digital L0 sampai L4">
+      <div class="st" style="height:36%;background:#56627E"><span class="lv">L0</span><b>Manual</b><small>Kertas &amp; rekap terpisah</small><span class="when">Titik awal</span></div>
+      <div class="st" style="height:52%;background:#3A5288"><span class="here">KAMI DI SINI</span><span class="lv">L1</span><b>Terdigitalisasi</b><small>Sistem siap, data inti masuk</small><span class="when">2026</span></div>
+      <div class="st" style="height:68%;background:#2F4A80"><span class="lv">L2</span><b>Terintegrasi</b><small>Semua layanan administrasi daring</small><span class="when">Jun 2027</span></div>
+      <div class="st" style="height:84%;background:#27407A"><span class="lv">L3</span><b>Pembelajaran digital</b><small>Papan interaktif, e-portofolio, CBT</small><span class="when">Jun 2028</span></div>
+      <div class="st" style="height:100%;background:#1F3570;border:1px solid rgba(224,164,58,.5)"><span class="lv">L4</span><b>Berbasis data</b><small>Dashboard mutu, tracer study, ≥95% nirkertas</small><span class="when">Jun 2029</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- AKREDITASI -->
+<section id="akreditasi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Komitmen mutu</span>
+      <h2>Perjalanan kami menuju akreditasi A</h2>
+      <p class="lead">Saat ini SMA Tunas Markatin terakreditasi B (nilai 88). Kami menargetkan peringkat A pada 2028 — bukan dengan menumpuk dokumen, tetapi dengan menjalankan praktik baik setiap hari di kelas.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl done"><div class="when">OKT 2026</div><h3>Ukur diri</h3><p>Evaluasi diri berdasarkan instrumen akreditasi terbaru dan pembentukan tim penjaminan mutu.</p></div>
+      <div class="tl"><div class="when">2027</div><h3>Perbaiki praktik</h3><p>Supervisi kelas, audit internal dua kali setahun, dan simulasi visitasi pada Desember 2027.</p></div>
+      <div class="tl"><div class="when">2028</div><h3>Ajukan akreditasi</h3><p>Pengajuan melalui BAN-PDM setelah semua butir penilaian berkategori baik.</p></div>
+      <div class="tl"><div class="when">AKHIR 2028</div><h3>Target peringkat A</h3><p>Dipertahankan melalui pemantauan mutu berkelanjutan berbasis data.</p></div>
+    </div>
+    <div class="comp">
+      <div class="card reveal"><span class="tag">Komponen 1</span><h3 style="margin-top:6px">Kinerja guru</h3><p>Pembelajaran berpusat pada murid: dukungan sosial-emosional, kelas yang aman, pembelajaran bermakna.</p></div>
+      <div class="card reveal"><span class="tag">Komponen 2</span><h3 style="margin-top:6px">Kepemimpinan sekolah</h3><p>Budaya refleksi, layanan kolaboratif, anggaran transparan, sarana terkelola, kurikulum sekolah.</p></div>
+      <div class="card reveal"><span class="tag">Komponen 3</span><h3 style="margin-top:6px">Iklim belajar</h3><p>Lingkungan yang menghargai keberagaman, inklusif, aman, dan sehat bagi seluruh warga sekolah.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FASILITAS -->
+<section class="alt" id="fasilitas">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Fasilitas</span><h2>Ruang untuk belajar dan bertumbuh</h2></div>
+    <div class="fac reveal">
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/></svg>Laboratorium IPA</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Laboratorium komputer</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><rect x="3" y="15" width="4" height="6" rx="1"/><rect x="17" y="15" width="4" height="6" rx="1"/></svg>Laboratorium bahasa</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Ruang multimedia</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/></svg>Perpustakaan</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c-3 2-3 5 0 7 3-2 3-5 0-7zM5 21V12h14v9M3 21h18M10 21v-4h4v4"/></svg>Musala</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>Lapangan futsal, basket, voli, bulu tangkis</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19.5" r="1"/></svg>Internet khusus sekolah</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPMB -->
+<section id="spmb">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Penerimaan murid baru</span>
+      <h2>SPMB Tahun Ajaran 2027/2028</h2>
+      <p class="lead">Pendaftaran online melalui sistem sekolah direncanakan dibuka mulai Januari 2027. Sampaikan minat Anda sekarang, dan kami akan menghubungi saat pendaftaran dibuka.</p>
+    </div>
+    <div class="spmb">
+      <div class="reveal">
+        <ol class="flow">
+          <li><b>Daftar online</b><span>Isi formulir dan buat akun calon murid di portal SPMB sekolah.</span></li>
+          <li><b>Unggah dokumen</b><span>Kartu keluarga, akta kelahiran, rapor SMP/MTs, dan pas foto (PDF/JPG).</span></li>
+          <li><b>Asesmen minat-bakat &amp; wawancara</b><span>Mengenal murid dan orang tua — awal dari program Kompas Hidupku.</span></li>
+          <li><b>Pengumuman</b><span>Hasil seleksi dapat dipantau langsung dari portal.</span></li>
+          <li><b>Daftar ulang</b><span>Pembayaran daring dan kuitansi otomatis.</span></li>
+        </ol>
+        <div class="aid"><b>Bantuan biaya pendidikan.</b> Murid yang memenuhi syarat dapat mengajukan KJP Plus (Pemprov DKI Jakarta) dan PIP (Kemendikdasmen). Tim sekolah membantu proses pengajuannya.</div>
+      </div>
+      <form class="form reveal" id="interestForm" novalidate>
+        <h3>Formulir minat</h3>
+        <p style="font-size:14.5px;color:var(--muted)">Isi formulir, lalu pesan Anda akan terkirim ke WhatsApp admin SPMB sekolah.</p>
+        <label for="f-nama">Nama calon murid</label>
+        <input id="f-nama" name="nama" required autocomplete="name">
+        <label for="f-asal">Asal SMP/MTs</label>
+        <input id="f-asal" name="asal">
+        <label for="f-hp">Nomor WhatsApp orang tua</label>
+        <input id="f-hp" name="hp" inputmode="tel" autocomplete="tel">
+        <label for="f-jalur">Jalur yang diminati</label>
+        <select id="f-jalur" name="jalur">
+          <option>Belum tahu — ingin konsultasi</option>
+          <option>Kuliah</option><option>Kerja</option><option>Wirausaha</option>
+        </select>
+        <a class="btn btn-gold" id="waLink" href="https://wa.me/6281310002530" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>Kirim via WhatsApp</a>
+        <p class="fine" id="formMsg" role="status">WhatsApp akan terbuka di tab baru dengan pesan terisi; tekan kirim di WhatsApp. Jika tidak terbuka, hubungi langsung <b style="user-select:all">0813-1000-2530</b>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- MITRA -->
+<section class="alt" id="mitra">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Kemitraan</span>
+      <h2>Mari tumbuh bersama murid kami</h2>
+      <p class="lead">Kami mengundang dunia usaha, UMKM, alumni, dan orang tua menjadi mitra. Mulai dari komitmen kecil, tingkatkan bersama.</p>
+    </div>
+    <div class="levels">
+      <div class="level reveal"><span class="n">LEVEL 1</span><h3>Terima kunjungan</h3><p>Murid berkunjung, mengamati, dan berdiskusi dengan karyawan — atau Anda menjadi narasumber tamu di sekolah.</p></div>
+      <div class="level reveal"><span class="n">LEVEL 2</span><h3>Job shadowing &amp; magang mikro</h3><p>Menerima murid 1–2 hari untuk mendampingi praktisi, atau magang singkat 2–4 minggu saat libur sekolah.</p></div>
+      <div class="level reveal"><span class="n">LEVEL 3</span><h3>Mitra karier &amp; rekrutmen</h3><p>Menjadi mitra tetap Pusat Karier: mentor, penguji portofolio, hingga merekrut lulusan terbaik.</p></div>
+    </div>
+    <p style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-gold" href="https://wa.me/6281310002530?text=Halo%20SMA%20Tunas%20Markatin%2C%20saya%20tertarik%20menjadi%20mitra%20sekolah." target="_blank" rel="noopener">Ajukan kemitraan via WhatsApp</a><a class="btn btn-outline" href="mailto:markatintunas@yahoo.co.id?subject=Minat%20kemitraan%20SMA%20Tunas%20Markatin">atau lewat email</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Tanya jawab</span><h2>Yang sering ditanyakan orang tua</h2></div>
+    <div class="faq reveal">
+      <details><summary>Apakah anak saya harus memilih jalur sejak kelas X?</summary><p>Tidak. Kelas X adalah masa eksplorasi: semua murid mengenal ketiga jalur. Pilihan jalur ditetapkan di akhir kelas X bersama orang tua dan guru BK, dan masih bisa berpindah di kelas XI melalui konseling.</p></details>
+      <details><summary>Kalau memilih jalur kerja atau wirausaha, apakah masih bisa kuliah?</summary><p>Bisa. Semua murid tetap mengikuti kurikulum SMA dan mendapat fondasi ketiga jalur. Banyak lulusan jalur kerja yang kemudian kuliah sambil bekerja.</p></details>
+      <details><summary>Apa bedanya dengan SMK?</summary><p>SMA tidak memiliki praktik kerja lapangan wajib seperti SMK. Pengalaman kerja di SMA Tunas Markatin dibangun melalui kokurikuler, mapel Prakarya &amp; Kewirausahaan, job shadowing, dan magang mikro di luar jam pelajaran — tanpa mengurangi persiapan akademik.</p></details>
+      <details><summary>Apa maksud "dewasa secara hukum"?</summary><p>Lulusan SMA umumnya berusia 17–18 tahun. Kami menyiapkan mereka memahami hak dan kewajiban sebagai warga negara — KTP-el, hak pilih, SIM, kontrak kerja, keuangan pribadi, dan aturan di dunia digital — agar siap bertanggung jawab atas keputusannya sendiri.</p></details>
+      <details><summary>Bagaimana data pribadi anak saya dijaga?</summary><p>Sistem sekolah dirancang mengikuti UU Pelindungan Data Pribadi: data sensitif dienkripsi, akses dibatasi sesuai peran, setiap perubahan tercatat, dan data dicadangkan secara rutin.</p></details>
+      <details><summary>Kapan pendaftaran SPMB 2027/2028 dibuka?</summary><p>Pendaftaran online direncanakan dibuka mulai Januari 2027. Isi formulir minat di atas atau hubungi WhatsApp SPMB 0813-1000-2530 agar kami dapat mengabari Anda.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="alt" id="kontak">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Kontak</span><h2>Kunjungi kami</h2></div>
+    <div class="contact">
+      <div class="cbox reveal">
+        <div class="cline"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Alamat</b>Jl. Waru No. 20B, Kecamatan Pulo Gadung, Jakarta Timur, DKI Jakarta</div></div>
+        <div class="cline"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><b>Telepon</b><a href="tel:+62214707917">(021) 4707917</a></div></div>
+        <div class="cline"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><div><b>WhatsApp SPMB</b><a href="https://wa.me/6281310002530" target="_blank" rel="noopener">0813-1000-2530</a></div></div>
+        <div class="cline"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg><div><b>Email</b><a href="mailto:markatintunas@yahoo.co.id">markatintunas@yahoo.co.id</a></div></div>
+        <div class="cline" style="margin-bottom:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>NPSN</b>20103190</div></div>
+      </div>
+      <div class="cbox reveal" style="background:var(--navy);color:var(--on-navy)">
+        <span class="eyebrow" style="color:var(--gold)">Lokasi strategis</span>
+        <h3 style="color:#fff;font-size:22px;margin-bottom:10px">Di tengah kawasan belajar dan bekerja</h3>
+        <p>Berada di Pulo Gadung — dekat kawasan industri, perkantoran, UMKM, dan kampus-kampus di koridor Rawamangun. Lingkungan ini menjadi ruang belajar nyata bagi ketiga jalur.</p>
+        <p style="margin-top:20px"><a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=SMA+Tunas+Markatin+Jl.+Waru+20B+Pulo+Gadung+Jakarta+Timur" target="_blank" rel="noopener">Buka di Google Maps</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4 style="font-size:17px">SMA Tunas Markatin</h4><p>Terarah · Dewasa · Mandiri · Beradab. Menuntun setiap murid menemukan arah hidupnya — siap kuliah, siap kerja, siap berwirausaha.</p></div>
+      <div><h4>Jelajahi</h4><a href="#tentang">Tentang</a><a href="#jalur">Tiga Jalur</a><a href="#program">Program</a><a href="#digital">Sekolah Digital</a><a href="#akreditasi">Akreditasi</a></div>
+      <div><h4>Layanan</h4><a href="#spmb">SPMB 2027/2028</a><a href="#mitra">Kemitraan</a><a href="#faq">Tanya jawab</a><a href="#kontak">Kontak</a></div>
+    </div>
+    <div class="bottom"><span>© <span id="yr">2026</span> SMA Tunas Markatin. Hak cipta dilindungi.</span><span>Diterbitkan dan dikelola oleh SMA Tunas Markatin · NPSN 20103190 · Pulo Gadung, Jakarta Timur</span></div>
+  </div>
+</footer>
+
+<script>
+// theme toggle (per-viewer; storage optional)
+(function(){
+  const root=document.documentElement, btn=document.getElementById('themeBtn');
+  let saved=null; try{saved=localStorage.getItem('stm-theme')}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  btn.addEventListener('click',()=>{
+    const cur=root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    const next=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('stm-theme',next)}catch(e){}
+  });
+})();
+// mobile menu
+const mb=document.getElementById('menuBtn'), mm=document.getElementById('mobileMenu');
+mb.addEventListener('click',()=>{const o=mm.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');mb.setAttribute('aria-expanded',false)}));
+// tabs
+const tabs=[...document.querySelectorAll('.tab')];
+tabs.forEach((t,i)=>{
+  t.addEventListener('click',()=>select(i));
+  t.addEventListener('keydown',e=>{if(e.key==='ArrowRight')select((i+1)%3,true);if(e.key==='ArrowLeft')select((i+2)%3,true)});
+});
+function select(i,focus){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',i===j);t.tabIndex=i===j?0:-1;document.getElementById(t.getAttribute('aria-controls')).classList.toggle('active',i===j)});if(focus)tabs[i].focus()}
+select(0);
+// interest form → WhatsApp (real link, updated as the visitor types)
+const form=document.getElementById('interestForm'), wa=document.getElementById('waLink'), msg=document.getElementById('formMsg');
+function waText(){
+  return `Assalamu'alaikum, Admin SPMB SMA Tunas Markatin.\nSaya ingin menyampaikan minat pendaftaran SPMB 2027/2028:\n\nNama calon murid: ${form.nama.value.trim()}\nAsal SMP/MTs: ${form.asal.value.trim()||'-'}\nWhatsApp orang tua: ${form.hp.value.trim()||'-'}\nJalur diminati: ${form.jalur.value}\n\nTerima kasih.`;
+}
+function syncWa(){wa.href='https://wa.me/6281310002530?text='+encodeURIComponent(waText())}
+form.addEventListener('input',syncWa); form.addEventListener('change',syncWa); syncWa();
+wa.addEventListener('click',e=>{ if(!form.nama.value.trim()){e.preventDefault();msg.textContent='Mohon isi nama calon murid terlebih dahulu.';form.nama.focus();} });
+form.addEventListener('submit',e=>{e.preventDefault(); if(form.nama.value.trim()) wa.click(); else {msg.textContent='Mohon isi nama calon murid terlebih dahulu.';form.nama.focus();}});
+// reveal
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
